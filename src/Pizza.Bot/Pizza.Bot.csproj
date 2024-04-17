@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <UserSecretsId>ae902198-db56-4cde-8b01-9c0f97aaba76</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Bots\**" />
+    <Compile Remove="Cards\**" />
+    <Content Remove="Bots\**" />
+    <Content Remove="Cards\**" />
+    <EmbeddedResource Remove="Bots\**" />
+    <EmbeddedResource Remove="Cards\**" />
+    <None Remove="Bots\**" />
+    <None Remove="Cards\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.22.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="8.0.4" />
+    <PackageReference Include="Microsoft.Bot.Builder.AI.Luis" Version="4.22.3" />
+    <PackageReference Include="Microsoft.Bot.Builder.ApplicationInsights" Version="4.22.3" />
+    <PackageReference Include="Microsoft.Bot.Builder.Dialogs" Version="4.22.3" />
+    <PackageReference Include="Microsoft.Bot.Builder.Integration.ApplicationInsights.Core" Version="4.22.3" />
+    <PackageReference Include="Microsoft.Bot.Builder.Integration.AspNet.Core" Version="4.22.3" />
+    <PackageReference Include="Microsoft.Recognizers.Text.DataTypes.TimexExpression" Version="1.8.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.Production.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core.Configuration\Core.Configuration.csproj" />
+    <ProjectReference Include="..\Features\Feature.CluService\Feature.CluService.csproj" />
+    <ProjectReference Include="..\Features\Feature.Core\Feature.Core.csproj" />
+    <ProjectReference Include="..\Features\Feature.QNAService\Feature.QNAService.csproj" />
+    <ProjectReference Include="..\Features\Feature.WhatsappAdapter\Feature.WhatsappAdapter.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Resources\Bot.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>

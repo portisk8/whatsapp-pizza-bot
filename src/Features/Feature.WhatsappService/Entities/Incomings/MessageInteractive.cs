@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.Json.Serialization;
+using System.Threading.Tasks;
+
+namespace Whatsapp.Adapter.WhatsAppAdapter.Incomings
+{
+    public class MessageInteractive
+    {
+        [JsonPropertyName("type")]
+        public string Type { get; set; }
+        [JsonPropertyName("button_reply")]
+        public ButtonReply ButtonReply { get; set; }
+
+    }
+}

@@ -11,6 +11,7 @@ namespace Pizza.Bot.Entities
         public enum Intent
         {
             PedirPizza,
+            Saludar,
             Cancelar,
             None
         }
